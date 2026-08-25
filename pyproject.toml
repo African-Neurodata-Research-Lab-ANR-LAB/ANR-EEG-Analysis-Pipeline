@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anr-eeg"
+version = "0.1.0"
+description = "MNE-powered EEG research workflows from African NeuroData Research Lab"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [
+  {name = "African NeuroData Research Lab (ANR)"}
+]
+dependencies = [
+  "mne>=1.12,<2",
+  "mne-bids>=0.19,<1",
+  "numpy>=2.1",
+  "pandas>=2.2",
+  "scipy>=1.14",
+  "matplotlib>=3.9",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "build>=1.2"]
+
+[project.urls]
+Homepage = "https://africanneurodataresearch.org/"
+Repository = "https://github.com/African-Neurodata-Research-Lab-ANR-LAB/ANR-EEG-Analysis-Pipeline"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

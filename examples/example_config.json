@@ -1,0 +1,24 @@
+{
+  "l_freq": 1.0,
+  "h_freq": 40.0,
+  "notch": 50.0,
+  "reference": null,
+  "bands": {
+    "delta": [
+      1,
+      4
+    ],
+    "theta": [
+      4,
+      8
+    ],
+    "alpha": [
+      8,
+      13
+    ],
+    "beta": [
+      13,
+      30
+    ]
+  }
+}

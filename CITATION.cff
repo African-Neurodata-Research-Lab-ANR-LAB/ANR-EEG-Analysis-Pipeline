@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use ANR-EEG-Analysis-Pipeline, please cite this software and the underlying MNE-Python methods you use."
+title: "ANR EEG Analysis Pipeline"
+type: software
+version: 0.1.0
+repository-code: "https://github.com/African-Neurodata-Research-Lab-ANR-LAB/ANR-EEG-Analysis-Pipeline"
+url: "https://africanneurodataresearch.org/"
+authors:
+  - family-names: Duruh
+    given-names: Joseph
+  - family-names: Akingbulu
+    given-names: Samuel
+  - family-names: Eseurhobo
+    given-names: Deborah
+  - family-names: Ogbe
+    given-names: Christopher
+  - family-names: Charles
+    given-names: Angelic
+  - family-names: Bassey
+    given-names: Esther
+  - family-names: Oparaugo
+    given-names: Smart
+  - family-names: Nsaane
+    given-names: Barisua
+  - family-names: Naabie
+    given-names: Goodness
+  - family-names: Filima
+    given-names: Patrick
+  - family-names: Wogu
+    given-names: Eberechi
+    affiliation: "African NeuroData Research Lab (ANR)"
