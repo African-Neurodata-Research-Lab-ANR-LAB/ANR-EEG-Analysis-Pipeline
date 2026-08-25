@@ -1,0 +1,10 @@
+mne<2,>=1.12
+mne-bids<1,>=0.19
+numpy>=2.1
+pandas>=2.2
+scipy>=1.14
+matplotlib>=3.9
+
+[test]
+pytest>=8
+build>=1.2

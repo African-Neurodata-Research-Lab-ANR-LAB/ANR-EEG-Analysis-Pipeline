@@ -2,72 +2,74 @@
 
 The **ANR EEG Analysis Pipeline** is a reproducible EEG research workflow developed by the African NeuroData Research Lab (ANR) and powered by MNE-Python.
 
-This guide is the best starting point if you are new to the repository.
-
 ## Fastest route: Google Colab
 
 You do not need to install Python locally.
 
-1. Open the repository on GitHub.
-2. Open `notebooks/ANR_EEG_Colab.ipynb`.
-3. Click **Open in Colab** if shown, or open the notebook through Google Colab.
-4. Run the notebook **one cell at a time**.
-5. Read the explanation before each cell.
-6. Upload your EEG dataset at the upload step.
-7. Inspect the output before moving to the next step.
-8. Download the generated ANR result package at the end.
+1. Open `notebooks/ANR_EEG_Colab.ipynb`.
+2. Open it in Google Colab.
+3. Run the notebook **one cell at a time**.
+4. Read the explanation before each cell.
+5. At the upload step, preferably upload the single `*_MNE_READY.zip` produced by the ANR Muse EEG Recorder.
+6. Alternatively, upload the matching raw EEG CSV, events TSV, and metadata JSON together.
+7. Inspect each output before continuing.
+8. Download the generated ANR analysis results at the end.
 
 Direct Colab URL:
 
 `https://colab.research.google.com/github/African-Neurodata-Research-Lab-ANR-LAB/ANR-EEG-Analysis-Pipeline/blob/main/notebooks/ANR_EEG_Colab.ipynb`
 
-## Recommended input
+## Preferred ANR input
 
-The primary format is the CSV exported by the ANR Muse EEG Recorder.
+```text
+ANR_<session>_<timestamp>_MNE_READY.zip
+```
 
-Expected EEG columns:
+The package contains:
 
-- `TP9_uV`
-- `AF7_uV`
-- `AF8_uV`
-- `TP10_uV`
+```text
+*_raw_eeg.csv
+*_events.tsv
+*_eeg_metadata.json
+```
 
-At least one usable timestamp source is required for automatic sampling-rate estimation.
+The metadata sampling frequency and deterministic `sample_index/time_s` relationship are used for MNE reconstruction.
 
-The optional `event_marker` column is converted into MNE annotations.
+Read [`MNE_READY_INPUT.md`](MNE_READY_INPUT.md) for the full input specification.
 
-## What the guided notebook does
+## Other supported inputs
 
-The workflow is intentionally sequential:
+The pipeline continues to support:
+
+- legacy ANR Muse CSV;
+- EDF/BDF;
+- FIF;
+- BrainVision;
+- BIDS through the Python API.
+
+## Guided workflow
 
 1. Install ANR EEG from GitHub.
-2. Import the analysis libraries.
-3. Upload one dataset.
-4. Load the recording into MNE.
+2. Import analysis libraries.
+3. Upload a dataset/package.
+4. Load into MNE.
 5. Inspect raw EEG.
 6. Run technical QC.
-7. Select preprocessing settings.
+7. Choose preprocessing settings.
 8. Preprocess.
 9. Inspect processed EEG.
 10. Compute PSD.
-11. Compute relative delta/theta/alpha/beta power.
-12. Review event markers.
-13. Export results.
+11. Compute relative band power.
+12. Review event annotations.
+13. Export standardized outputs.
 14. Generate an HTML report.
-15. Download the complete output package.
+15. Download results.
 
 ## Local installation
-
-Clone the repository:
 
 ```bash
 git clone https://github.com/African-Neurodata-Research-Lab-ANR-LAB/ANR-EEG-Analysis-Pipeline.git
 cd ANR-EEG-Analysis-Pipeline
-```
-
-Create a Python 3.11+ environment and install:
-
-```bash
 python -m pip install -e .
 ```
 
@@ -80,4 +82,4 @@ pytest -q
 
 ## Research-use boundary
 
-The pipeline is intended for research analysis and reproducible workflows. QC status, spectral plots, band power, and reports are not clinical EEG interpretations or diagnoses.
+QC status, EEG spectra, band power, event annotations, and reports are research outputs. They are not clinical EEG interpretations or diagnoses.
